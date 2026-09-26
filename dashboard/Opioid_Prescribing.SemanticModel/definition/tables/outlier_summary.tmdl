@@ -18,6 +18,11 @@ table outlier_summary
 		displayFolder: Outliers
 		lineageTag: 8c19e3ab-3586-5f46-9682-5ac50226ab1a
 
+	measure 'Outlier Share of Prescribers' = DIVIDE ( [High Outliers], [Eligible Prescribers] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outliers
+		lineageTag: 78b5a984-da5d-593e-a358-5da02b97a816
+
 	column year
 		dataType: int64
 		isHidden

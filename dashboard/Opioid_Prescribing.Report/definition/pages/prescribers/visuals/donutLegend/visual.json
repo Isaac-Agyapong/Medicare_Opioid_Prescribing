@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "donutLegend",
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#4C5FD5"
+                    }
+                  },
+                  {
+                    "value": "NPs / PAs      ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#10302E"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#0F766E"
+                    }
+                  },
+                  {
+                    "value": "Primary care physicians      ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#10302E"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#C5CFCE"
+                    }
+                  },
+                  {
+                    "value": "All other prescribers      ",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#10302E"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 194,
+    "y": 640,
+    "z": 14000,
+    "height": 56,
+    "width": 520,
+    "tabOrder": 14000
+  }
+}

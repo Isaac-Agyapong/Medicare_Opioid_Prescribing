@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "credit",
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "DATA",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#A7D7CF",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "CMS Medicare Part D",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#CFE3E0"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "CDC  ·  US Census",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#CFE3E0"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "color": "#10302E"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Built by Isaac Agyapong",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#A7D7CF",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PostgreSQL  ·  Power BI",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#CFE3E0"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 4,
+    "y": 584,
+    "z": 6000,
+    "height": 128,
+    "width": 160,
+    "tabOrder": 6000
+  }
+}

@@ -78,7 +78,36 @@ PostgreSQL `COPY` bulk loading, schemas and a star schema, unlogged staging tabl
 
 ---
 
-## Charts
+## Power BI dashboard
+
+A 4-page report built as a **Power BI Project (`.pbip`)** that imports the analytics views directly from PostgreSQL
+(server and database are parameters). The whole report is generated from code
+([`Python/05_build_powerbi_project.py`](Python/05_build_powerbi_project.py)), so the model (TMDL), every visual (PBIR JSON)
+and all 53 DAX measures are readable on GitHub. Every number was checked against the SQL results.
+
+**Design choices**
+- One colour, one meaning across all pages: **teal** = prescribing, **coral** = overdose deaths, **indigo** = NPs/PAs,
+  **amber** = outliers, grey = everything else.
+- Every chart title states the finding, and every KPI card has a context line (comparison or trend).
+- A US **tile map** built from a matrix with measure-driven colours, a **hover tooltip page** with each state's profile,
+  a year filter, cross-filtering, and a Data Notes page with sources, definitions and limitations.
+
+**National overview**: KPI cards, area chart (prescribing −40%), stacked columns (deaths by drug type), donut (fentanyl share)
+![Overview](Image/powerbi_page1.png)
+
+**State comparison**: tile map of death rates, top-10 prescribing states, and the 10 deadliest states with their prescribing rank
+![States](Image/powerbi_page2.png)
+
+**Who prescribes**: 2019 vs 2024 prescriber mix, outlier KPIs, outliers by prescriber group with data bars
+![Prescribers](Image/powerbi_page3.png)
+
+**Data notes**
+![Data notes](Image/powerbi_page4.png)
+
+To open it: install Power BI Desktop, open `dashboard/Opioid_Prescribing.pbip`, sign in to PostgreSQL when prompted
+(Database tab), then click **Refresh**.
+
+## Python charts (analysis notebook)
 
 | | |
 |---|---|
@@ -86,19 +115,7 @@ PostgreSQL `COPY` bulk loading, schemas and a star schema, unlogged staging tabl
 | ![](Image/03_correlation_by_year.png) | ![](Image/04_specialty_shift.png) |
 | ![](Image/05_outlier_persistence.png) | ![](Image/06_rural_urban.png) |
 
-## Power BI dashboard
-
-Saved as a Power BI Project (`.pbip`) that **imports the analytics views directly from PostgreSQL**, with the server and
-database as parameters. Three pages: National Trend, States and Prescribers. Every measure was checked against the SQL results.
-
-**States**
-![States](Image/powerbi_page2.png)
-
-**Prescribers**
-![Prescribers](Image/powerbi_page3.png)
-
 ---
-
 ## Project structure
 
 ```
@@ -115,7 +132,7 @@ Medicare_Opioid_Prescribing/
 │   ├── 05_business_questions.sql  # 12 queries
 │   └── query_results.md       # every query with its output
 ├── Python/                    # download, load, run SQL, analysis notebook, Power BI generator, export
-├── dashboard/                 # Power BI project
+├── dashboard/                 # Power BI project (.pbip): model, report, background asset
 ├── Image/                     # charts and dashboard screenshots
 └── run_all.py
 ```

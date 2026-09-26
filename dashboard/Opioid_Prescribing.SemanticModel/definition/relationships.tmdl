@@ -18,3 +18,7 @@ relationship 7e6c3604-a83a-58aa-a193-847a042baab6
 	fromColumn: outlier_summary.year
 	toColumn: DimYear.Year
 
+relationship a5d675f2-1d76-5c2e-b8db-ca7d44462c11
+	fromColumn: state_year.state_abbr
+	toColumn: StateGrid.state_abbr
+

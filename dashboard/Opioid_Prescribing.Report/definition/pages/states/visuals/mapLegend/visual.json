@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "mapLegend",
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Deaths per 100k   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#FBE3D6"
+                    }
+                  },
+                  {
+                    "value": "under 20   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#F5B48F"
+                    }
+                  },
+                  {
+                    "value": "20-30   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#EE8452"
+                    }
+                  },
+                  {
+                    "value": "30-40   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#D95926"
+                    }
+                  },
+                  {
+                    "value": "40-50   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A"
+                    }
+                  },
+                  {
+                    "value": "■ ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#9E3A12"
+                    }
+                  },
+                  {
+                    "value": "50+",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#5B6B6A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 200,
+    "y": 662,
+    "z": 10000,
+    "height": 36,
+    "width": 508,
+    "tabOrder": 10000
+  }
+}

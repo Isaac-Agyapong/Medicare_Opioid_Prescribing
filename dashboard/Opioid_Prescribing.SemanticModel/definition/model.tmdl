@@ -16,6 +16,7 @@ ref table specialty_year
 ref table rural_urban_trend
 ref table outlier_summary
 ref table DimYear
+ref table StateGrid
 
 ref cultureInfo en-US
 

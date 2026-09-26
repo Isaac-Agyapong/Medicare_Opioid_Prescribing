@@ -8,7 +8,8 @@ table specialty_year
 
 	measure 'Share of Opioid Claims' =
 			DIVIDE ( [Specialty Opioid Claims],
-			    CALCULATE ( [Specialty Opioid Claims], REMOVEFILTERS ( specialty_year[specialty_group] ) ) )
+			    CALCULATE ( [Specialty Opioid Claims],
+			        REMOVEFILTERS ( specialty_year[specialty_group], specialty_year[Prescriber Group] ) ) )
 		formatString: 0.0%;-0.0%;0.0%
 		displayFolder: Prescribers
 		lineageTag: e13ff1e0-2990-5f41-a4fc-ec2333afe422
@@ -27,6 +28,42 @@ table specialty_year
 		formatString: 0.0%;-0.0%;0.0%
 		displayFolder: Prescribers
 		lineageTag: efd2878c-a20a-5dd2-8b22-e6185547c05d
+
+	measure 'Share Change 2019-2024' =
+			// percentage-point change in each group's share of opioid prescriptions (waterfall)
+			( CALCULATE ( [Share of Opioid Claims], DimYear[Year] = 2024 )
+			    - CALCULATE ( [Share of Opioid Claims], DimYear[Year] = 2019 ) ) * 100
+		formatString: +0.0" pts";-0.0" pts";0.0" pts"
+		displayFolder: Prescribers
+		lineageTag: f6d72e05-d4f0-5435-8846-bbee073e8961
+
+	measure 'Share (Slope)' =
+			// slope chart: only the first and last year, so each group becomes one line from 2019 to 2024
+			IF ( MAX ( DimYear[Year] ) IN { 2019, 2024 }, [Share of Opioid Claims] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: ce6df03d-9e94-5d3a-bcc6-e4c4f50c9422
+
+	measure 'Share 2019' = CALCULATE ( [Share of Opioid Claims], DimYear[Year] = 2019 )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: d4ea45ba-e856-56c0-9919-ea527f71f899
+
+	measure 'Share 2024' = CALCULATE ( [Share of Opioid Claims], DimYear[Year] = 2024 )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: 841c2f49-cda7-5d87-a739-331c3983e2e9
+
+	column 'Prescriber Group' =
+			SWITCH ( specialty_year[specialty_group],
+			    "Nurse Practitioner / PA", "NPs / PAs",
+			    "Primary Care", "Primary care physicians",
+			    "All other prescribers" )
+		dataType: string
+		lineageTag: 04deb2c5-77dd-56fd-ad7e-f69a516442e8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column year
 		dataType: int64

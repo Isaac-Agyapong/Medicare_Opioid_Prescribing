@@ -28,6 +28,80 @@ table state_year
 		displayFolder: States
 		lineageTag: 398e9d71-cf14-5c17-9281-262bf2d7cf73
 
+	measure 'Selected State' = SELECTEDVALUE ( state_year[state_name], "All states" )
+		displayFolder: Context
+		lineageTag: 55ca07af-11de-59ca-a9c9-e254f0195403
+
+	measure 'Prescribing Rank Text' =
+			VAR _rank = RANKX ( ALL ( StateGrid[state_abbr] ), [State Opioid Rate] )
+			RETURN IF ( HASONEVALUE ( StateGrid[state_abbr] ), "Prescribing rank: #" & _rank & " of 51" )
+		displayFolder: Context
+		lineageTag: 3e296a77-9523-5f16-9165-89eb855f0beb
+
+	measure 'Top 10 Prescribing Rate' =
+			VAR _rank = RANKX ( ALLSELECTED ( state_year[state_name] ), [State Opioid Rate] )
+			RETURN IF ( _rank <= 10, [State Opioid Rate] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: States
+		lineageTag: fee64712-c96c-537b-87c7-ba03398404d0
+
+	measure 'Top 10 Death Rate' =
+			VAR _rank = RANKX ( ALLSELECTED ( state_year[state_name] ), [Overdose Death Rate] )
+			RETURN IF ( _rank <= 10, [Overdose Death Rate] )
+		formatString: 0.0
+		displayFolder: States
+		lineageTag: c722e499-a447-5931-bdbd-0b34fd681dcc
+
+	measure 'Death State Prescribing Rate' = IF ( NOT ISBLANK ( [Top 10 Death Rate] ), [State Opioid Rate] )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: States
+		lineageTag: b47eda3b-cf70-5ecf-9913-e6b7ffb27440
+
+	measure 'Death State Prescribing Rank' =
+			IF ( NOT ISBLANK ( [Top 10 Death Rate] ),
+			    RANKX ( ALLSELECTED ( state_year[state_name] ), [State Opioid Rate] ) )
+		formatString: \#0
+		displayFolder: States
+		lineageTag: 3cde7116-78f3-5d48-957e-e259aabcbda5
+
+	measure 'Tile X' = MIN ( StateGrid[tile_x] )
+		formatString: 0
+		displayFolder: Map
+		lineageTag: 1548fccc-47cb-5323-850a-4a738f10b6ad
+
+	measure 'Tile Y' = -1.45 * MIN ( StateGrid[tile_y] )
+		formatString: 0.0
+		displayFolder: Map
+		lineageTag: 732ef245-a858-5f36-9606-863b10a9fb9f
+
+	measure 'Tile Size' = IF ( NOT ISEMPTY ( StateGrid ), 1 )
+		formatString: 0
+		displayFolder: Map
+		lineageTag: 9245bd52-2dbb-55eb-bfe4-0fbd54049162
+
+	measure 'Tile Label' = SELECTEDVALUE ( StateGrid[state_abbr] )
+		displayFolder: Map
+		lineageTag: d150b102-65b1-5cd1-9b74-801a32d25bf0
+
+	measure 'Tile Label Colour' =
+			VAR _r = [Overdose Death Rate]
+			RETURN IF ( NOT ISBLANK ( _r ) && _r >= 40, "#FFFFFF", "#0B0B0B" )
+		displayFolder: Map
+		lineageTag: b2fbb704-1f2a-5d72-8875-96c499622fbe
+
+	measure 'Death Rate Colour' =
+			VAR _r = [Overdose Death Rate]
+			RETURN SWITCH ( TRUE (),
+			    ISBLANK ( SELECTEDVALUE ( StateGrid[state_abbr] ) ), "#FFFFFF",
+			    ISBLANK ( _r ), "#E1E4EA",
+			    _r < 20, "#FBE3D6",
+			    _r < 30, "#F5B48F",
+			    _r < 40, "#EE8452",
+			    _r < 50, "#D95926",
+			    "#9E3A12" )
+		displayFolder: Map
+		lineageTag: 632e521b-5099-5db1-9140-48456e945bd3
+
 	column state_fips
 		dataType: string
 		isHidden

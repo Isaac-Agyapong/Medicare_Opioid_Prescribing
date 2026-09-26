@@ -55,6 +55,11 @@
           "name": "OpioidPortfolioTheme.json",
           "path": "OpioidPortfolioTheme.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "page_background.png",
+          "path": "page_background.png",
+          "type": "Image"
         }
       ]
     }

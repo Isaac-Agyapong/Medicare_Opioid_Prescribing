@@ -64,6 +64,59 @@ table national_trend
 		displayFolder: National
 		lineageTag: 97a8acbd-f0d7-550a-acad-66613d4f67a6
 
+	measure 'Peak Year' = MAXX ( TOPN ( 1, ALL ( DimYear[Year] ), [Opioid Deaths], DESC ), DimYear[Year] )
+		formatString: 0
+		displayFolder: Context
+		lineageTag: 7baffb84-19e3-56e2-86f6-c6835d45f32b
+
+	measure 'KPI Rate Context' =
+			"in " & MAX ( DimYear[Year] ) & "  ·  was "
+			    & FORMAT ( CALCULATE ( [Opioid Rate], DimYear[Year] = 2013 ), "0.00%" ) & " in 2013"
+		displayFolder: Context
+		lineageTag: 0d05a091-b65d-56f9-ac91-7a8f2430d893
+
+	measure 'KPI Change Context' = "vs. 2013  ·  lower every year"
+		displayFolder: Context
+		lineageTag: eb641f23-eabe-5e84-baa5-1fa8decbbe6b
+
+	measure 'KPI Peak Context' = "in " & [Peak Year] & "  ·  " & FORMAT ( [Latest Opioid Deaths], "#,0" ) & " in " & MAX ( DimYear[Year] )
+		displayFolder: Context
+		lineageTag: 385b68bb-106b-5d4c-a883-dc11e3c33d02
+
+	measure 'KPI Synthetic Context' =
+			"in " & MAX ( DimYear[Year] ) & "  ·  "
+			    & FORMAT ( CALCULATE ( [Synthetic Share], DimYear[Year] = 2015 ), "0%" ) & " in 2015"
+		displayFolder: Context
+		lineageTag: 4219b615-010c-5fd1-bf20-1989ad4fad7e
+
+	measure 'Fentanyl-Involved Deaths' = [Synthetic Opioid Deaths]
+		formatString: #,0
+		displayFolder: National
+		lineageTag: e76349da-585d-51eb-9215-a4fb6756b572
+
+	measure 'Other Opioid Deaths' =
+			// opioid deaths not involving synthetic opioids: stacks with the line above without double counting
+			[Opioid Deaths] - [Synthetic Opioid Deaths]
+		formatString: #,0
+		displayFolder: National
+		lineageTag: ad1070c8-6797-54f1-b0cd-92ee8d1e1af2
+
+	measure 'Latest Fentanyl-Involved Deaths' = CALCULATE ( [Fentanyl-Involved Deaths], DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 063d621b-2ed2-5d87-a412-1e10bbfa0296
+
+	measure 'Latest Other Opioid Deaths' = CALCULATE ( [Other Opioid Deaths], DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 57d33eb7-2d9e-53fc-9274-b02a120601b0
+
+	measure 'KPI Deaths Context' =
+			"down " & FORMAT ( 1 - DIVIDE ( [Latest Opioid Deaths], [Peak Opioid Deaths] ), "0%" )
+			    & " from the " & [Peak Year] & " peak"
+		displayFolder: Context
+		lineageTag: 5d8b7aea-2792-5ed1-8d1c-2d10522e6af9
+
 	column year
 		dataType: int64
 		isHidden
