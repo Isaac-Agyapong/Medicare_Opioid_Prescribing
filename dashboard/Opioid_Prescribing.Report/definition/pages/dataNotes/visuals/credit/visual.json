@@ -35,7 +35,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "CDC  ·  US Census",
+                    "value": "CDC  \u00b7  US Census",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#CFE3E0"
@@ -69,7 +69,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "PostgreSQL  ·  Power BI",
+                    "value": "PostgreSQL  \u00b7  Power BI",
                     "textStyle": {
                       "fontSize": "8pt",
                       "color": "#CFE3E0"

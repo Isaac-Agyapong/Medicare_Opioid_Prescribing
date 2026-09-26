@@ -20,7 +20,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#FBE3D6"
@@ -34,7 +34,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#F5B48F"
@@ -48,7 +48,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#EE8452"
@@ -62,7 +62,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#D95926"
@@ -76,7 +76,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "14pt",
                       "color": "#9E3A12"

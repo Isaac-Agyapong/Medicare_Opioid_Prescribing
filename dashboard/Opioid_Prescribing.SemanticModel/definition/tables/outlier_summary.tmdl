@@ -25,8 +25,8 @@ table outlier_summary
 
 	column year
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: 34cd614d-4383-596d-8966-4927cccfd755
 		summarizeBy: none
 		sourceColumn: year
@@ -96,4 +96,3 @@ table outlier_summary
 				    Data
 
 	annotation PBI_ResultType = Table
-

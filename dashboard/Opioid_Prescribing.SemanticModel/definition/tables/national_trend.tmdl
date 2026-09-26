@@ -119,8 +119,8 @@ table national_trend
 
 	column year
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: aa2162d9-e0f3-5af3-a3a6-b38315f82927
 		summarizeBy: none
 		sourceColumn: year
@@ -254,4 +254,3 @@ table national_trend
 				    Data
 
 	annotation PBI_ResultType = Table
-

@@ -33,7 +33,7 @@ table state_year
 		lineageTag: 55ca07af-11de-59ca-a9c9-e254f0195403
 
 	measure 'Prescribing Rank Text' =
-			VAR _rank = RANKX ( ALL ( StateGrid[state_abbr] ), [State Opioid Rate] )
+			VAR _rank = RANKX ( ALL ( StateGrid[state_abbr] ), CALCULATE ( [State Opioid Rate], REMOVEFILTERS ( state_year[state_name] ), REMOVEFILTERS ( state_year[state_abbr] ) ) )
 			RETURN IF ( HASONEVALUE ( StateGrid[state_abbr] ), "Prescribing rank: #" & _rank & " of 51" )
 		displayFolder: Context
 		lineageTag: 3e296a77-9523-5f16-9165-89eb855f0beb
@@ -58,8 +58,12 @@ table state_year
 		lineageTag: b47eda3b-cf70-5ecf-9913-e6b7ffb27440
 
 	measure 'Death State Prescribing Rank' =
-			IF ( NOT ISBLANK ( [Top 10 Death Rate] ),
-			    RANKX ( ALLSELECTED ( state_year[state_name] ), [State Opioid Rate] ) )
+			// rank among all 51 states for the selected year, whatever state filters are active
+			VAR _cur = [State Opioid Rate]
+			VAR _all = CALCULATETABLE (
+			    ADDCOLUMNS ( VALUES ( state_year[state_name] ), "@rate", [State Opioid Rate] ),
+			    REMOVEFILTERS ( StateGrid ), REMOVEFILTERS ( state_year[state_name] ), REMOVEFILTERS ( state_year[state_abbr] ) )
+			RETURN IF ( NOT ISBLANK ( [Top 10 Death Rate] ), COUNTROWS ( FILTER ( _all, [@rate] > _cur ) ) + 1 )
 		formatString: \#0
 		displayFolder: States
 		lineageTag: 3cde7116-78f3-5d48-957e-e259aabcbda5
@@ -137,8 +141,8 @@ table state_year
 
 	column year
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: fa7f9207-266e-515f-a356-fcb2c5ed88dd
 		summarizeBy: none
 		sourceColumn: year
@@ -264,8 +268,8 @@ table state_year
 
 	column prescribing_rank
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: a4c576a8-ed0a-514f-b237-7dfb3065a5f9
 		summarizeBy: none
 		sourceColumn: prescribing_rank
@@ -291,4 +295,3 @@ table state_year
 				    Data
 
 	annotation PBI_ResultType = Table
-

@@ -1,14 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "kpiContext4",
-  "position": {
-    "x": 1010,
-    "y": 184,
-    "z": 22000,
-    "height": 28,
-    "width": 250,
-    "tabOrder": 22000
-  },
   "visual": {
     "visualType": "card",
     "query": {
@@ -27,7 +19,8 @@
                 }
               },
               "queryRef": "national_trend.KPI Deaths Context",
-              "nativeQueryRef": "KPI Deaths Context"
+              "nativeQueryRef": "KPI Deaths Context",
+              "displayName": ""
             }
           ]
         }
@@ -222,5 +215,13 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "position": {
+    "x": 1010,
+    "y": 184,
+    "z": 22000,
+    "height": 28,
+    "width": 250,
+    "tabOrder": 22000
   }
 }

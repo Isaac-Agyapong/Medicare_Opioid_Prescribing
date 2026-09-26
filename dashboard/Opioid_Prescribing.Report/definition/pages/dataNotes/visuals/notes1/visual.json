@@ -24,7 +24,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "•  CMS Medicare Part D Prescribers by Provider, 2019-2024 (7.8M prescriber-years)",
+                    "value": "\u2022  CMS Medicare Part D Prescribers by Provider, 2019-2024 (7.8M prescriber-years)",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -35,7 +35,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "•  CMS Medicare Part D Opioid Prescribing Rates by Geography, 2013-2024",
+                    "value": "\u2022  CMS Medicare Part D Opioid Prescribing Rates by Geography, 2013-2024",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -46,7 +46,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "•  CDC VSRR Provisional Drug Overdose Death Counts, 2015-2024",
+                    "value": "\u2022  CDC VSRR Provisional Drug Overdose Death Counts, 2015-2024",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -57,7 +57,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "•  US Census Bureau state population estimates",
+                    "value": "\u2022  US Census Bureau state population estimates",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -68,7 +68,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "•  Loaded and modelled in PostgreSQL; this report imports the analytics views",
+                    "value": "\u2022  Loaded and modelled in PostgreSQL; this report imports the analytics views",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"

@@ -1,14 +1,6 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "slicerYear",
-  "position": {
-    "x": 12,
-    "y": 342,
-    "z": 5000,
-    "height": 60,
-    "width": 144,
-    "tabOrder": 5000
-  },
   "visual": {
     "visualType": "slicer",
     "query": {
@@ -28,7 +20,6 @@
               },
               "queryRef": "DimYear.Year",
               "nativeQueryRef": "Year",
-              "active": true,
               "displayName": "Year"
             }
           ]
@@ -67,6 +58,13 @@
                       "Value": "'#A7D7CF'"
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
                 }
               }
             },
@@ -159,5 +157,13 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "position": {
+    "x": 12,
+    "y": 342,
+    "z": 5000,
+    "height": 60,
+    "width": 144,
+    "tabOrder": 5000
   }
 }

@@ -74,5 +74,27 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "tileMap",
+      "target": "topPrescribing",
+      "type": "NoFilter"
+    },
+    {
+      "source": "tileMap",
+      "target": "deathStates",
+      "type": "NoFilter"
+    },
+    {
+      "source": "topPrescribing",
+      "target": "deathStates",
+      "type": "NoFilter"
+    },
+    {
+      "source": "deathStates",
+      "target": "topPrescribing",
+      "type": "NoFilter"
+    }
+  ]
 }

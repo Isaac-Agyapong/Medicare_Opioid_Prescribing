@@ -8,8 +8,6 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_ProTooling = ["DevMode"]
-
 ref table national_trend
 ref table state_year
 ref table specialty_year
@@ -17,6 +15,3 @@ ref table rural_urban_trend
 ref table outlier_summary
 ref table DimYear
 ref table StateGrid
-
-ref cultureInfo en-US
-

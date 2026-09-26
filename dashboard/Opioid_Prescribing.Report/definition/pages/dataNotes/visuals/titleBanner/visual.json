@@ -25,7 +25,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "DATA NOTES   ·   ",
+                    "value": "DATA NOTES   \u00b7   ",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#A7D7CF",

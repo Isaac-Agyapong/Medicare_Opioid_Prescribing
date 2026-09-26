@@ -13,8 +13,8 @@ table rural_urban_trend
 
 	column year
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: bbcdba55-3d4e-5f55-ace2-a4d6fca1f61c
 		summarizeBy: none
 		sourceColumn: year
@@ -75,4 +75,3 @@ table rural_urban_trend
 				    Data
 
 	annotation PBI_ResultType = Table
-

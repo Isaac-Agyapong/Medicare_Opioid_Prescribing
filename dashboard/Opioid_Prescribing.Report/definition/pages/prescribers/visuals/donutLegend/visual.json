@@ -12,7 +12,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "16pt",
                       "color": "#4C5FD5"
@@ -26,7 +26,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "16pt",
                       "color": "#0F766E"
@@ -40,7 +40,7 @@
                     }
                   },
                   {
-                    "value": "■ ",
+                    "value": "\u25a0 ",
                     "textStyle": {
                       "fontSize": "16pt",
                       "color": "#C5CFCE"

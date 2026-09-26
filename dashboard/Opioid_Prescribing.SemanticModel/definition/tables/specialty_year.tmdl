@@ -1,6 +1,17 @@
 table specialty_year
 	lineageTag: f516c410-e727-5a25-aa08-e59d3a4ab8c2
 
+	column 'Prescriber Group' =
+			SWITCH ( specialty_year[specialty_group],
+			    "Nurse Practitioner / PA", "NPs / PAs",
+			    "Primary Care", "Primary care physicians",
+			    "All other prescribers" )
+		dataType: string
+		lineageTag: 04deb2c5-77dd-56fd-ad7e-f69a516442e8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	measure 'Specialty Opioid Claims' = SUM ( specialty_year[opioid_claims] )
 		formatString: #,0
 		displayFolder: Prescribers
@@ -54,21 +65,10 @@ table specialty_year
 		displayFolder: Prescribers
 		lineageTag: 841c2f49-cda7-5d87-a739-331c3983e2e9
 
-	column 'Prescriber Group' =
-			SWITCH ( specialty_year[specialty_group],
-			    "Nurse Practitioner / PA", "NPs / PAs",
-			    "Primary Care", "Primary care physicians",
-			    "All other prescribers" )
-		dataType: string
-		lineageTag: 04deb2c5-77dd-56fd-ad7e-f69a516442e8
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
 	column year
 		dataType: int64
-		isHidden
 		formatString: 0
+		isHidden
 		lineageTag: a38e41a3-d3ff-592a-91c2-a93f0653f54b
 		summarizeBy: none
 		sourceColumn: year
@@ -165,4 +165,3 @@ table specialty_year
 				    Data
 
 	annotation PBI_ResultType = Table
-

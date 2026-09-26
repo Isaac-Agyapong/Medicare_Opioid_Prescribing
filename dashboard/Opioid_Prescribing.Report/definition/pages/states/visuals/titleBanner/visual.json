@@ -25,7 +25,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "STATE COMPARISON   ·   ",
+                    "value": "STATE COMPARISON   \u00b7   ",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#A7D7CF",

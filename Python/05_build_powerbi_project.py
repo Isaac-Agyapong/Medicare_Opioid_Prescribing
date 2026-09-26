@@ -160,7 +160,7 @@ MEASURES = [
      '    & FORMAT ( CALCULATE ( [Synthetic Share], DimYear[Year] = 2015 ), "0%" ) & " in 2015"', None, "Context"),
     ("state_year", "Selected State", 'SELECTEDVALUE ( state_year[state_name], "All states" )', None, "Context"),
     ("state_year", "Prescribing Rank Text",
-     "VAR _rank = RANKX ( ALL ( StateGrid[state_abbr] ), [State Opioid Rate] )\n"
+     "VAR _rank = RANKX ( ALL ( StateGrid[state_abbr] ), CALCULATE ( [State Opioid Rate], REMOVEFILTERS ( state_year[state_name] ), REMOVEFILTERS ( state_year[state_abbr] ) ) )\n"
      'RETURN IF ( HASONEVALUE ( StateGrid[state_abbr] ), "Prescribing rank: #" & _rank & " of 51" )', None, "Context"),
 
     # --- executive visuals
@@ -183,8 +183,13 @@ MEASURES = [
     ("state_year", "Death State Prescribing Rate",
      "IF ( NOT ISBLANK ( [Top 10 Death Rate] ), [State Opioid Rate] )", PCT2, "States"),
     ("state_year", "Death State Prescribing Rank",
-     "IF ( NOT ISBLANK ( [Top 10 Death Rate] ),\n"
-     "    RANKX ( ALLSELECTED ( state_year[state_name] ), [State Opioid Rate] ) )", r"\#0", "States"),
+     "// rank among all 51 states for the selected year, whatever state filters are active\n"
+     "VAR _cur = [State Opioid Rate]\n"
+     "VAR _all = CALCULATETABLE (\n"
+     '    ADDCOLUMNS ( VALUES ( state_year[state_name] ), "@rate", [State Opioid Rate] ),\n'
+     "    REMOVEFILTERS ( StateGrid ), REMOVEFILTERS ( state_year[state_name] ), REMOVEFILTERS ( state_year[state_abbr] ) )\n"
+     "RETURN IF ( NOT ISBLANK ( [Top 10 Death Rate] ), COUNTROWS ( FILTER ( _all, [@rate] > _cur ) ) + 1 )",
+     r"\#0", "States"),
     ("specialty_year", "Share Change 2019-2024",
      "// percentage-point change in each group's share of opioid prescriptions (waterfall)\n"
      "( CALCULATE ( [Share of Opioid Claims], DimYear[Year] = 2024 )\n"
@@ -518,6 +523,7 @@ def navigator():
 class Page:
     def __init__(self, name, display, width=1280, height=720, kind=None):
         self.name, self.display, self.visuals = name, display, []
+        self.no_filter = []          # (source, target) visual pairs that must not filter each other
         self.width, self.height, self.kind = width, height, kind
 
     def add(self, vid, x, y, w, h, visual):
@@ -536,6 +542,8 @@ class Page:
                                                                    "ItemName": "page_background.png"}}},
                                                                "scaling": s("Fit")}}}}],
                             "outspace": [{"properties": {"color": solid(PAGE_BG)}}]}}
+        if self.no_filter:
+            page["visualInteractions"] = [{"source": a, "target": b, "type": "NoFilter"} for a, b in self.no_filter]
         if self.kind == "Tooltip":
             # same shape Power BI Desktop writes for a tooltip page
             page.update({"displayOption": "ActualSize", "visibility": "HiddenInViewMode", "type": "Tooltip",
@@ -683,6 +691,9 @@ def build_pages():
                                     "axisColor": solid("#FFFFFF"), "reverseDirection": lit("false"),
                                     "hideText": lit("false")}},
         "selector": {"metadata": f"state_year.{measure}"}}
+    # rankings always rank all 51 states: clicking a state on the map must not filter them
+    p2.no_filter += [("tileMap", "topPrescribing"), ("tileMap", "deathStates"),
+                     ("topPrescribing", "deathStates"), ("deathStates", "topPrescribing")]
     p2.add("deathStates", X0 + 556, TOP + 316, 524, 304, chart(
         "tableEx", {"Values": [C("state_year", "state_name"),
                                MN("Top 10 Death Rate", "Deaths /100k"),

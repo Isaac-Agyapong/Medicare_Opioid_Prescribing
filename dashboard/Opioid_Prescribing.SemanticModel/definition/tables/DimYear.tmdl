@@ -15,4 +15,3 @@ table DimYear
 	partition DimYear = calculated
 		mode: import
 		source = SELECTCOLUMNS ( GENERATESERIES ( 2013, 2024, 1 ), "Year", [Value] )
-

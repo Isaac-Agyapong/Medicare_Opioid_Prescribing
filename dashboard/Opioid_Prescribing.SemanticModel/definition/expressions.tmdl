@@ -7,4 +7,3 @@ expression PgDatabase = "opioid_analytics" meta [IsParameterQuery = true, Type =
 	lineageTag: 07b43917-2c86-5913-9fa9-043c3b07b840
 
 	annotation PBI_ResultType = Text
-
