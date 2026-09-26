@@ -1,0 +1,92 @@
+{
+  "downloaded_at": "2026-09-26T14:36:55+00:00",
+  "files": [
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2019,
+      "file": "cms_partd_prescribers_2019.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/d4a0a871-5e6a-4180-8d89-82b56ff08175/mup_dpr_ry21_p04_v20_dy19_npi.csv",
+      "bytes": 671751347,
+      "sha256": "93ab118f8c486471eef978b9ff72a23c4ac89eafcf66a57383142833eee35405"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2020,
+      "file": "cms_partd_prescribers_2020.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/0df99eb3-9bfe-46ac-8dd0-c5e700781aae/mup_dpr_ry22_p04_v20_dy20_npi.csv",
+      "bytes": 675822659,
+      "sha256": "46cee933e33cd5b2503f2c8a47bd28b5ca11318f6de1d1d59134bbbd39dc9198"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2021,
+      "file": "cms_partd_prescribers_2021.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/a8cb773f-4a79-42de-b7ad-83da254416bf/mup_dpr_ry23_p04_v20_dy21_npi.csv",
+      "bytes": 694392872,
+      "sha256": "9ccbfd11051d8223a3b8273295a4f7f9df7371313c45f79b3ec024d32236ca2c"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2022,
+      "file": "cms_partd_prescribers_2022.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/0cdbfc0d-257d-4eb0-bcc8-71e5462ec320/mup_dpr_ry24_p04_v20_dy22_npi.csv",
+      "bytes": 737566989,
+      "sha256": "e2d46a8edcd402216aa7542d1e2ef949381a1a453d8afe52e23589185209c336"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2023,
+      "file": "cms_partd_prescribers_2023.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/7f74c86e-ca81-4255-8951-3275c4361241/mup_dpr_ry25_p04_v20_dy23_npi.csv",
+      "bytes": 761185821,
+      "sha256": "77131e6d82b4c6ed913d9f1eb2c030e196b68dfc4478629c3675386b2f5c4b37"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Prescribers - by Provider",
+      "data_year": 2024,
+      "file": "cms_partd_prescribers_2024.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-08/373e45e5-33ec-452c-9302-a4bdbc203459/mup_dpr_ry26_p04_v20_dy24_npi.csv",
+      "bytes": 786130236,
+      "sha256": "5fbaf1a24f5c54bfd61719f7910fe6cc31cefc388ba9e3159d611f1810e30166"
+    },
+    {
+      "source": "CMS",
+      "dataset": "Medicare Part D Opioid Prescribing Rates - by Geography",
+      "data_year": 2024,
+      "file": "cms_opioid_rates_by_geography.csv",
+      "url": "https://data.cms.gov/sites/default/files/2026-06/9b59e852-c8a0-4c8d-a13a-8fb087211bdd/OMT_MDCR_RY26_P04_V10_Y24_GEO.csv",
+      "bytes": 34083649,
+      "sha256": "0dd5f8cc71b463bd0e4d6d7026b72ef7458b685df2e455702c7a98627a449847"
+    },
+    {
+      "source": "CDC",
+      "dataset": "VSRR Provisional Drug Overdose Death Counts",
+      "file": "cdc_vsrr_overdose_deaths.csv",
+      "url": "https://data.cdc.gov/api/views/xkb8-kh2a/rows.csv?accessType=DOWNLOAD",
+      "bytes": 16243297,
+      "sha256": "f44a22e9f38839745eb12a2a4614699ab4ef99178cba6ab79a240c2c16fe3630"
+    },
+    {
+      "source": "US Census Bureau",
+      "dataset": "State population estimates",
+      "file": "census_state_pop_2010_2020.csv",
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2010-2020/state/totals/nst-est2020-alldata.csv",
+      "bytes": 81740,
+      "sha256": "6e1289c0041f42b4238dd4e4fe7975b25816a7a40de9a5b70581821e6659c75c"
+    },
+    {
+      "source": "US Census Bureau",
+      "dataset": "State population estimates",
+      "file": "census_state_pop_2020_latest.csv",
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-ALLDATA.csv",
+      "bytes": 53555,
+      "sha256": "92188e29cb0a67dcf95afa7d6c47359409782f086478b70ea4128eb70e223ca9"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+expression PgServer = "localhost" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 7f25e06f-2159-5b54-b28e-7ca47ab072c5
+
+	annotation PBI_ResultType = Text
+
+expression PgDatabase = "opioid_analytics" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 07b43917-2c86-5913-9fa9-043c3b07b840
+
+	annotation PBI_ResultType = Text
+

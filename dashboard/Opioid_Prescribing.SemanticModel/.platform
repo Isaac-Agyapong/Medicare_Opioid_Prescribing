@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Opioid_Prescribing"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd0df9b7-a0ac-46c6-a4c0-cd78295eb500"
+  }
+}

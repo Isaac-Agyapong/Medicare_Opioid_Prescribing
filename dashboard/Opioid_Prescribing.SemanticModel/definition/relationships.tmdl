@@ -1,0 +1,20 @@
+relationship c87f47fa-eaf8-5028-9c1d-a88746cb6e1e
+	fromColumn: national_trend.year
+	toColumn: DimYear.Year
+
+relationship 649ecf62-e7d9-5910-bce6-825122e0d399
+	fromColumn: state_year.year
+	toColumn: DimYear.Year
+
+relationship 4967c2d7-b9dc-5aad-813a-0c8db71ed732
+	fromColumn: specialty_year.year
+	toColumn: DimYear.Year
+
+relationship 1c80ea75-fd9b-54ec-b284-777cda15da33
+	fromColumn: rural_urban_trend.year
+	toColumn: DimYear.Year
+
+relationship 7e6c3604-a83a-58aa-a193-847a042baab6
+	fromColumn: outlier_summary.year
+	toColumn: DimYear.Year
+

@@ -1,0 +1,16 @@
+{
+  "name": "Opioid Portfolio",
+  "dataColors": [
+    "#EB6834",
+    "#2A78D6",
+    "#1BAF7A",
+    "#EDA100",
+    "#E87BA4",
+    "#008300",
+    "#4A3AA7",
+    "#E34948"
+  ],
+  "foreground": "#0B0B0B",
+  "background": "#FFFFFF",
+  "tableAccent": "#2A78D6"
+}

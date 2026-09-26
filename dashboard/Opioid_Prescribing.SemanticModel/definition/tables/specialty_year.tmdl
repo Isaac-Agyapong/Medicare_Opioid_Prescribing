@@ -1,0 +1,131 @@
+table specialty_year
+	lineageTag: f516c410-e727-5a25-aa08-e59d3a4ab8c2
+
+	measure 'Specialty Opioid Claims' = SUM ( specialty_year[opioid_claims] )
+		formatString: #,0
+		displayFolder: Prescribers
+		lineageTag: 9976100d-4213-5f09-8c0e-a1c2754fce35
+
+	measure 'Share of Opioid Claims' =
+			DIVIDE ( [Specialty Opioid Claims],
+			    CALCULATE ( [Specialty Opioid Claims], REMOVEFILTERS ( specialty_year[specialty_group] ) ) )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: e13ff1e0-2990-5f41-a4fc-ec2333afe422
+
+	measure 'Specialty Opioid Rate' = DIVIDE ( SUM ( specialty_year[opioid_claims] ), SUM ( specialty_year[total_claims] ) )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: d3c674a7-a864-5f94-b36c-92f3384c5eb6
+
+	measure 'NP / PA Share' = CALCULATE ( [Share of Opioid Claims], specialty_year[specialty_group] = "Nurse Practitioner / PA" )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: 9f52507c-4c03-5016-9935-53bebd39531a
+
+	measure 'Primary Care Share' = CALCULATE ( [Share of Opioid Claims], specialty_year[specialty_group] = "Primary Care" )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Prescribers
+		lineageTag: efd2878c-a20a-5dd2-8b22-e6185547c05d
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a38e41a3-d3ff-592a-91c2-a93f0653f54b
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column specialty_group
+		dataType: string
+		lineageTag: 5f3d6652-41b3-54c8-ad57-8bc7d0104d6d
+		summarizeBy: none
+		sourceColumn: specialty_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: d3aeabf2-9c9d-58b6-8408-3f809cf0b656
+		summarizeBy: sum
+		sourceColumn: prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: 15ffc404-fd19-593f-bcde-06f02334549e
+		summarizeBy: sum
+		sourceColumn: opioid_prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e9525bed-859c-5617-80e0-593cebb65a0f
+		summarizeBy: sum
+		sourceColumn: total_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 92edb2a5-af90-5d48-9e42-db99d932178d
+		summarizeBy: sum
+		sourceColumn: opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b99aa71d-82ab-5011-8330-e76c3dde7f8c
+		summarizeBy: sum
+		sourceColumn: opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_of_all_opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0a0e1b06-7f62-5207-b1a6-5f74221fb39a
+		summarizeBy: sum
+		sourceColumn: share_of_all_opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column la_opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d288e205-18ed-507e-b404-92e91b0957d7
+		summarizeBy: sum
+		sourceColumn: la_opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_days_per_opioid_claim
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 2a6844e8-5d3b-53d8-b2e2-e844e06195eb
+		summarizeBy: sum
+		sourceColumn: avg_days_per_opioid_claim
+
+		annotation SummarizationSetBy = Automatic
+
+	partition specialty_year = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "analytics", Item = "specialty_year"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table
+

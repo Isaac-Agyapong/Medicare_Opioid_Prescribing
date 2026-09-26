@@ -1,0 +1,204 @@
+table national_trend
+	lineageTag: 26964520-c4a8-520a-8465-187b5066af2f
+
+	measure 'Opioid Rate' = DIVIDE ( SUM ( national_trend[opioid_claims] ), SUM ( national_trend[total_claims] ) )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: National
+		lineageTag: a3ca9591-9140-5144-b7ee-23715b83f541
+
+	measure 'Opioid Claims' = SUM ( national_trend[opioid_claims] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: bdd0aca2-52bd-5f5d-9b8d-4ce543447a9f
+
+	measure 'Latest Opioid Rate' = CALCULATE ( [Opioid Rate], DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: National
+		lineageTag: 40e78f17-610e-544b-9517-aa5ee6458d63
+
+	measure 'Rate Change Since 2013' =
+			VAR _now = [Latest Opioid Rate]
+			VAR _base = CALCULATE ( [Opioid Rate], DimYear[Year] = 2013 )
+			RETURN DIVIDE ( _now - _base, _base )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: National
+		lineageTag: 2b09a7f7-de65-5ef5-8c49-4e969c970be8
+
+	measure 'Opioid Deaths' = SUM ( national_trend[opioid_deaths] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 37d3ab1a-b273-5b76-a0b3-b533933bda25
+
+	measure 'Synthetic Opioid Deaths' = SUM ( national_trend[synthetic_opioid_deaths] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 83dc35d6-7088-5930-9c86-1adcc476e32c
+
+	measure 'Rx Opioid Deaths' = SUM ( national_trend[rx_opioid_deaths] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 844af11a-97f9-502a-a716-ec860a31ebf3
+
+	measure 'Heroin Deaths' = SUM ( national_trend[heroin_deaths] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: 89f5cf12-de41-53e1-a83b-eb71c6fd8f5a
+
+	measure 'Latest Opioid Deaths' = CALCULATE ( [Opioid Deaths], DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: e9b6a35f-aa68-5ce8-ac4e-f02a82fb300a
+
+	measure 'Peak Opioid Deaths' = MAXX ( ALL ( DimYear[Year] ), [Opioid Deaths] )
+		formatString: #,0
+		displayFolder: National
+		lineageTag: b0504d6e-43e6-588d-9919-7ec12ddd3678
+
+	measure 'Synthetic Share' = DIVIDE ( [Synthetic Opioid Deaths], [Opioid Deaths] )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: National
+		lineageTag: 2a6aaec3-ce53-586d-a101-f2348c3ad709
+
+	measure 'Latest Synthetic Share' = CALCULATE ( [Synthetic Share], DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: National
+		lineageTag: 97a8acbd-f0d7-550a-acad-66613d4f67a6
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: aa2162d9-e0f3-5af3-a3a6-b38315f82927
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: 08375b5c-e8bd-527a-a892-be8e8cb4efcd
+		summarizeBy: sum
+		sourceColumn: prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: cdfde6b4-b612-5873-bbc0-a832be8869a9
+		summarizeBy: sum
+		sourceColumn: opioid_prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e9aeb04c-b453-537d-8594-465a0ae45c01
+		summarizeBy: sum
+		sourceColumn: opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 857e3d3d-3ad1-579a-ad01-b330ad37a497
+		summarizeBy: sum
+		sourceColumn: total_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5d0ed911-3cb5-500b-9ffd-7f64f332cdee
+		summarizeBy: sum
+		sourceColumn: opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column la_opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4e59888d-2356-5ffc-acb0-f55572ecdde8
+		summarizeBy: sum
+		sourceColumn: la_opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_rate_index_2013
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 598db459-cba1-52ce-a1ca-edea60d475b7
+		summarizeBy: sum
+		sourceColumn: opioid_rate_index_2013
+
+		annotation SummarizationSetBy = Automatic
+
+	column all_drug_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 750ed058-fd92-53c4-9ceb-a0e4e7c2ac3b
+		summarizeBy: sum
+		sourceColumn: all_drug_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e31e1fc-37b3-5fb6-bc54-cbbbde2db2c2
+		summarizeBy: sum
+		sourceColumn: opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column synthetic_opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: da78d812-587a-5de1-8e3d-def78ff76b5a
+		summarizeBy: sum
+		sourceColumn: synthetic_opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column rx_opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 157a86ee-d382-5422-aa3e-8253177994fb
+		summarizeBy: sum
+		sourceColumn: rx_opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column heroin_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 217aa3f0-1cf4-516f-9f0c-1f80885722d7
+		summarizeBy: sum
+		sourceColumn: heroin_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column synthetic_share_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ecd9e008-4b55-5721-a6ea-86741a355c73
+		summarizeBy: sum
+		sourceColumn: synthetic_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition national_trend = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "analytics", Item = "national_trend"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table
+

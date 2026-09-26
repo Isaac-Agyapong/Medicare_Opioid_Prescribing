@@ -1,0 +1,114 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "scatter",
+  "position": {
+    "x": 24,
+    "y": 160,
+    "z": 3000,
+    "height": 548,
+    "width": 612,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "state_abbr"
+                }
+              },
+              "queryRef": "state_year.state_abbr",
+              "nativeQueryRef": "state_abbr",
+              "active": true,
+              "displayName": "State"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "State Opioid Rate"
+                }
+              },
+              "queryRef": "state_year.State Opioid Rate",
+              "nativeQueryRef": "State Opioid Rate",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "Overdose Death Rate"
+                }
+              },
+              "queryRef": "state_year.Overdose Death Rate",
+              "nativeQueryRef": "Overdose Death Rate"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Opioid prescribing rate (x) vs. overdose deaths per 100,000 (y)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

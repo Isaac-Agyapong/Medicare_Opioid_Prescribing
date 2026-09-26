@@ -1,0 +1,19 @@
+# Source downloads are ~4.4 GB; Python/01_download_data.py re-fetches them
+# (Data/raw/manifest.json records every URL, size and SHA-256)
+Data/raw/*
+!Data/raw/manifest.json
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+
+# Power BI local files (data cache is rebuilt by Refresh)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

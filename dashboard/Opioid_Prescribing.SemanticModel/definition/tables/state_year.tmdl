@@ -1,0 +1,220 @@
+table state_year
+	lineageTag: cbe87571-7a86-5570-9917-35591eaaeb6b
+
+	measure 'State Opioid Rate' = DIVIDE ( SUM ( state_year[opioid_claims] ), SUM ( state_year[total_claims] ) )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: States
+		lineageTag: 60271cc5-74b6-59e7-a404-563532544ccf
+
+	measure 'Overdose Death Rate' =
+			// deaths per 100,000, pooled over the selected years that have death data
+			DIVIDE ( SUM ( state_year[all_drug_deaths] ),
+			    SUMX ( state_year, IF ( NOT ISBLANK ( state_year[all_drug_deaths] ), state_year[population] ) ) ) * 100000
+		formatString: 0.0
+		displayFolder: States
+		lineageTag: f1796d9b-9d90-5dae-8079-05a0c9858144
+
+	measure 'Fentanyl Death Rate' =
+			DIVIDE ( SUM ( state_year[synthetic_opioid_deaths] ),
+			    SUMX ( state_year, IF ( NOT ISBLANK ( state_year[synthetic_opioid_deaths] ), state_year[population] ) ) ) * 100000
+		formatString: 0.0
+		displayFolder: States
+		lineageTag: 261d4d03-66cd-501c-8bc6-04a69da4a3cd
+
+	measure 'Rx Opioid Death Rate' =
+			DIVIDE ( SUM ( state_year[rx_opioid_deaths] ),
+			    SUMX ( state_year, IF ( NOT ISBLANK ( state_year[rx_opioid_deaths] ), state_year[population] ) ) ) * 100000
+		formatString: 0.0
+		displayFolder: States
+		lineageTag: 398e9d71-cf14-5c17-9281-262bf2d7cf73
+
+	column state_fips
+		dataType: string
+		isHidden
+		lineageTag: a84e75b4-da1a-5656-b611-84ba52e62007
+		summarizeBy: none
+		sourceColumn: state_fips
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_abbr
+		dataType: string
+		lineageTag: 00b06655-8b77-5cd1-96f2-05e707cc890a
+		summarizeBy: none
+		sourceColumn: state_abbr
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: b949d427-cb0a-5360-8da9-c64f9dc66014
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column census_region
+		dataType: string
+		lineageTag: 71d5a633-dc04-5ebf-bf04-0f1dee1f525b
+		summarizeBy: none
+		sourceColumn: census_region
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fa7f9207-266e-515f-a356-fcb2c5ed88dd
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 14ce4ab9-a51d-538c-b593-4891ff4b62ce
+		summarizeBy: sum
+		sourceColumn: opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column la_opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d23fd1ef-f934-5411-8ce1-efe1e83e4a17
+		summarizeBy: sum
+		sourceColumn: la_opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b6f04e38-1fbd-572f-8c99-1a9c0c1a699f
+		summarizeBy: sum
+		sourceColumn: opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: 468bc516-6505-5ea8-9b87-da5f89e9e1a8
+		summarizeBy: sum
+		sourceColumn: opioid_prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column population
+		dataType: int64
+		formatString: 0
+		lineageTag: d333c2b1-b2e4-5d0b-8848-971bb57534c2
+		summarizeBy: sum
+		sourceColumn: population
+
+		annotation SummarizationSetBy = Automatic
+
+	column all_drug_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: e5957636-93f2-5c37-ab58-c53049097a19
+		summarizeBy: sum
+		sourceColumn: all_drug_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 32c8b9ab-8622-5941-8d7d-877ee08d30ab
+		summarizeBy: sum
+		sourceColumn: opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column synthetic_opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 1131aa34-e1cb-5073-9dc8-c69baf183d10
+		summarizeBy: sum
+		sourceColumn: synthetic_opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column rx_opioid_deaths
+		dataType: int64
+		formatString: 0
+		lineageTag: 9710b285-b707-5572-80c3-aa52aa2b0d88
+		summarizeBy: sum
+		sourceColumn: rx_opioid_deaths
+
+		annotation SummarizationSetBy = Automatic
+
+	column overdose_death_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9b1e4e17-8902-535c-8855-35436db3d60d
+		summarizeBy: sum
+		sourceColumn: overdose_death_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_death_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 574f5cf3-5fbf-58d8-9d32-ec73f75dc067
+		summarizeBy: sum
+		sourceColumn: opioid_death_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column synthetic_death_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d72081d5-1fac-5544-88da-b93a547479b0
+		summarizeBy: sum
+		sourceColumn: synthetic_death_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column rx_opioid_death_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e2971b9a-2f9d-5cc6-944f-fa665a1a35fc
+		summarizeBy: sum
+		sourceColumn: rx_opioid_death_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column prescribing_rank
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a4c576a8-ed0a-514f-b237-7dfb3065a5f9
+		summarizeBy: none
+		sourceColumn: prescribing_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 72a51082-162e-51b6-8bf4-86fa8900da14
+		summarizeBy: sum
+		sourceColumn: total_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	partition state_year = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "analytics", Item = "state_year"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table
+

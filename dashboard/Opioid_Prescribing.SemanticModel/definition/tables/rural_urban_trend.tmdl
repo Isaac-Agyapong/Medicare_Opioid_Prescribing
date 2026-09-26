@@ -1,0 +1,78 @@
+table rural_urban_trend
+	lineageTag: 75f9b2ce-91e1-574b-8f9f-c9cada27f5c7
+
+	measure 'Rural Opioid Rate' = CALCULATE ( AVERAGE ( rural_urban_trend[opioid_rate] ), rural_urban_trend[area] = "Rural" ) / 100
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Rural
+		lineageTag: c68b8373-8e07-5a9c-8ad3-67d2d33d8e50
+
+	measure 'Urban Opioid Rate' = CALCULATE ( AVERAGE ( rural_urban_trend[opioid_rate] ), rural_urban_trend[area] = "Urban" ) / 100
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Rural
+		lineageTag: 8cccf363-bb23-5f94-866a-356f84c6b142
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bbcdba55-3d4e-5f55-ace2-a4d6fca1f61c
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column area
+		dataType: string
+		lineageTag: a8539176-3c85-5ce9-8af1-6c7ca1ca0dfc
+		summarizeBy: none
+		sourceColumn: area
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cc37b8a7-105f-5e75-8613-1a3a5fb37a35
+		summarizeBy: sum
+		sourceColumn: opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column la_opioid_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ba3929d5-f39b-5d9c-b597-27d30bd91a36
+		summarizeBy: sum
+		sourceColumn: la_opioid_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: 967d84eb-9298-5e22-bbb7-642168943d8a
+		summarizeBy: sum
+		sourceColumn: prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: b910028c-c698-5dc8-9ff4-9ee54a51d70e
+		summarizeBy: sum
+		sourceColumn: opioid_prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	partition rural_urban_trend = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "analytics", Item = "rural_urban_trend"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "outlierTable",
+  "position": {
+    "x": 24,
+    "y": 472,
+    "z": 6000,
+    "height": 236,
+    "width": 1232,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "outlier_summary"
+                    }
+                  },
+                  "Property": "specialty_group"
+                }
+              },
+              "queryRef": "outlier_summary.specialty_group",
+              "nativeQueryRef": "specialty_group",
+              "displayName": "Prescriber group"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "outlier_summary"
+                    }
+                  },
+                  "Property": "Eligible Prescribers"
+                }
+              },
+              "queryRef": "outlier_summary.Eligible Prescribers",
+              "nativeQueryRef": "Eligible Prescribers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "outlier_summary"
+                    }
+                  },
+                  "Property": "High Outliers"
+                }
+              },
+              "queryRef": "outlier_summary.High Outliers",
+              "nativeQueryRef": "High Outliers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "outlier_summary"
+                    }
+                  },
+                  "Property": "Outlier Share of Claims"
+                }
+              },
+              "queryRef": "outlier_summary.Outlier Share of Claims",
+              "nativeQueryRef": "Outlier Share of Claims"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "outlier_summary"
+                  }
+                },
+                "Property": "High Outliers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Peer outliers in the latest selected year (at or above the 99th percentile and 3x the median of their own specialty)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "subtitle",
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Prescribing fell every year since 2013 while overdose deaths doubled, driven by fentanyl. Sources: CMS Medicare Part D, CDC, US Census",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "color": "#52514E"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 24,
+    "y": 50,
+    "z": 1000,
+    "height": 34,
+    "width": 1232,
+    "tabOrder": 1000
+  }
+}

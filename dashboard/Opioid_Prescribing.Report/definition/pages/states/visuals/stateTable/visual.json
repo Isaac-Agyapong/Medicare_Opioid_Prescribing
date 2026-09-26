@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "stateTable",
+  "position": {
+    "x": 648,
+    "y": 88,
+    "z": 4000,
+    "height": 620,
+    "width": 608,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "state_name"
+                }
+              },
+              "queryRef": "state_year.state_name",
+              "nativeQueryRef": "state_name",
+              "displayName": "State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "census_region"
+                }
+              },
+              "queryRef": "state_year.census_region",
+              "nativeQueryRef": "census_region",
+              "displayName": "Region"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "State Opioid Rate"
+                }
+              },
+              "queryRef": "state_year.State Opioid Rate",
+              "nativeQueryRef": "State Opioid Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "Overdose Death Rate"
+                }
+              },
+              "queryRef": "state_year.Overdose Death Rate",
+              "nativeQueryRef": "Overdose Death Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "Fentanyl Death Rate"
+                }
+              },
+              "queryRef": "state_year.Fentanyl Death Rate",
+              "nativeQueryRef": "Fentanyl Death Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "state_year"
+                    }
+                  },
+                  "Property": "Rx Opioid Death Rate"
+                }
+              },
+              "queryRef": "state_year.Rx Opioid Death Rate",
+              "nativeQueryRef": "Rx Opioid Death Rate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "state_year"
+                  }
+                },
+                "Property": "State Opioid Rate"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'All states'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

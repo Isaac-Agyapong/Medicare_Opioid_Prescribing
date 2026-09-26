@@ -1,0 +1,94 @@
+table outlier_summary
+	lineageTag: c2772971-4eba-5f8f-8ef4-459f60138f17
+
+	measure 'High Outliers' =
+			// outliers are counted per year, so show the latest selected year rather than a multi-year sum
+			CALCULATE ( SUM ( outlier_summary[high_outliers] ), DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: #,0
+		displayFolder: Outliers
+		lineageTag: 9c0126f6-413d-51ce-8e95-194844e55e17
+
+	measure 'Eligible Prescribers' = CALCULATE ( SUM ( outlier_summary[eligible_prescribers] ), DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: #,0
+		displayFolder: Outliers
+		lineageTag: e6425dcf-0f29-5e75-853c-5937e32f8f1d
+
+	measure 'Outlier Share of Claims' = CALCULATE ( DIVIDE ( SUM ( outlier_summary[outlier_opioid_claims] ), SUM ( outlier_summary[opioid_claims] ) ), DimYear[Year] = MAX ( DimYear[Year] ) )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outliers
+		lineageTag: 8c19e3ab-3586-5f46-9682-5ac50226ab1a
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 34cd614d-4383-596d-8966-4927cccfd755
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column specialty_group
+		dataType: string
+		lineageTag: dbd187df-e85f-5d7b-8795-f7361945925d
+		summarizeBy: none
+		sourceColumn: specialty_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column eligible_prescribers
+		dataType: int64
+		formatString: 0
+		lineageTag: c9eab5f0-e6d2-5842-86e9-652f8971d053
+		summarizeBy: sum
+		sourceColumn: eligible_prescribers
+
+		annotation SummarizationSetBy = Automatic
+
+	column high_outliers
+		dataType: int64
+		formatString: 0
+		lineageTag: c9597410-76e6-53da-b2b8-b6bc42986193
+		summarizeBy: sum
+		sourceColumn: high_outliers
+
+		annotation SummarizationSetBy = Automatic
+
+	column opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a6220a5e-a547-5925-a224-2de10df672c5
+		summarizeBy: sum
+		sourceColumn: opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column outlier_opioid_claims
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d42f27d2-69fd-5c02-bbe3-bf5c99625fca
+		summarizeBy: sum
+		sourceColumn: outlier_opioid_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column outlier_share_of_claims_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 816dc992-e4fa-53b9-8a69-ef7d08bc86b7
+		summarizeBy: sum
+		sourceColumn: outlier_share_of_claims_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition outlier_summary = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database(PgServer, PgDatabase),
+				    Data = Source{[Schema = "analytics", Item = "outlier_summary"]}[Data]
+				in
+				    Data
+
+	annotation PBI_ResultType = Table
+

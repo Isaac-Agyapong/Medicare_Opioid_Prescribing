@@ -1,0 +1,3 @@
+# Notebooks embed chart images, which GitHub would otherwise count as the main language
+*.ipynb linguist-documentation
+SQL/query_results.md linguist-generated

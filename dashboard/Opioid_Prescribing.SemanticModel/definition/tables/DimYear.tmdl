@@ -1,0 +1,18 @@
+table DimYear
+	lineageTag: 060ab216-d472-578e-9c4f-99fd20d51c69
+
+	column Year
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: 143ff9aa-d1b8-5252-983b-ee0c81895181
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimYear = calculated
+		mode: import
+		source = SELECTCOLUMNS ( GENERATESERIES ( 2013, 2024, 1 ), "Year", [Value] )
+
