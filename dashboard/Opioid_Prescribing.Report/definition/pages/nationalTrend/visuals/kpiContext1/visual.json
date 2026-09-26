@@ -1,6 +1,14 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "kpiContext1",
+  "position": {
+    "x": 188,
+    "y": 184,
+    "z": 10000,
+    "height": 28,
+    "width": 250,
+    "tabOrder": 10000
+  },
   "visual": {
     "visualType": "card",
     "query": {
@@ -19,8 +27,7 @@
                 }
               },
               "queryRef": "national_trend.KPI Rate Context",
-              "nativeQueryRef": "KPI Rate Context",
-              "displayName": ""
+              "nativeQueryRef": "KPI Rate Context"
             }
           ]
         }
@@ -215,13 +222,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "position": {
-    "x": 188,
-    "y": 184,
-    "z": 10000,
-    "height": 28,
-    "width": 250,
-    "tabOrder": 10000
   }
 }

@@ -1,6 +1,14 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ttRank",
+  "position": {
+    "x": 4,
+    "y": 36,
+    "z": 2000,
+    "height": 26,
+    "width": 312,
+    "tabOrder": 2000
+  },
   "visual": {
     "visualType": "card",
     "query": {
@@ -19,8 +27,7 @@
                 }
               },
               "queryRef": "state_year.Prescribing Rank Text",
-              "nativeQueryRef": "Prescribing Rank Text",
-              "displayName": ""
+              "nativeQueryRef": "Prescribing Rank Text"
             }
           ]
         }
@@ -215,13 +222,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "position": {
-    "x": 4,
-    "y": 36,
-    "z": 2000,
-    "height": 26,
-    "width": 312,
-    "tabOrder": 2000
   }
 }

@@ -141,8 +141,8 @@ table state_year
 
 	column year
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
 		lineageTag: fa7f9207-266e-515f-a356-fcb2c5ed88dd
 		summarizeBy: none
 		sourceColumn: year
@@ -268,8 +268,8 @@ table state_year
 
 	column prescribing_rank
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
 		lineageTag: a4c576a8-ed0a-514f-b237-7dfb3065a5f9
 		summarizeBy: none
 		sourceColumn: prescribing_rank
@@ -295,3 +295,4 @@ table state_year
 				    Data
 
 	annotation PBI_ResultType = Table
+

@@ -1,0 +1,513 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dimyear.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DimYear",
+			          "ConceptualProperty": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.fentanylinvolved_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Fentanyl-Involved Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Involving fentanyl-type drugs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.other_opioid_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Other Opioid Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Other opioids only": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.latest_fentanylinvolved_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Latest Fentanyl-Involved Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fentanyl-type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.latest_other_opioid_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Latest Other Opioid Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Other opioids": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.latest_opioid_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Latest Opioid Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Opioid share of prescriptions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.rate_change_since_2013": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Rate Change Since 2013"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Change in prescribing rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.peak_opioid_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Peak Opioid Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Peak US opioid deaths": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "national_trend.latest_opioid_deaths": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "national_trend",
+			          "ConceptualProperty": "Latest Opioid Deaths"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "US opioid deaths, latest year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "state_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.top_10_death_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Top 10 Death Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Deaths /100k": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.death_state_prescribing_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Death State Prescribing Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rx rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.death_state_prescribing_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Death State Prescribing Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rx rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.tile_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Tile Label"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "state_year.overdose_death_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Overdose Death Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overdose deaths / 100k": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.fentanyl_death_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Fentanyl Death Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fentanyl deaths / 100k": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.state_opioid_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "State Opioid Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescribing rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "state_year.rx_opioid_death_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "state_year",
+			          "ConceptualProperty": "Rx Opioid Death Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rx-opioid deaths / 100k": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "specialty_year.share_2019": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "specialty_year",
+			          "ConceptualProperty": "Share 2019"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of opioid prescriptions, 2019": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "specialty_year.share_2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "specialty_year",
+			          "ConceptualProperty": "Share 2024"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share of opioid prescriptions, 2024": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "outlier_summary.high_outliers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "outlier_summary",
+			          "ConceptualProperty": "High Outliers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Outliers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "outlier_summary.outlier_share_of_prescribers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "outlier_summary",
+			          "ConceptualProperty": "Outlier Share of Prescribers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "of prescribers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "outlier_summary.outlier_share_of_claims": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "outlier_summary",
+			          "ConceptualProperty": "Outlier Share of Claims"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "of opioid claims": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Share of claims": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "outlier_summary.specialty_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "outlier_summary",
+			          "ConceptualProperty": "specialty_group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescriber group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

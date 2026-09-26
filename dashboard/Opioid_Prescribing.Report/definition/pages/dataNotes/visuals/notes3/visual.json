@@ -24,7 +24,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Medicare Part D only: mostly adults 65+ and people with disabilities",
+                    "value": "•  Medicare Part D only: mostly adults 65+ and people with disabilities",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -35,7 +35,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  CMS suppresses prescriber opioid counts of 1-10; these are 2.2% of claims",
+                    "value": "•  CMS suppresses prescriber opioid counts of 1-10; these are 2.2% of claims",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -46,7 +46,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  2024 CDC counts are provisional",
+                    "value": "•  2024 CDC counts are provisional",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -57,7 +57,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  State comparisons describe states, not individual patients",
+                    "value": "•  State comparisons describe states, not individual patients",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -68,7 +68,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  An outlier is a flag for review, not evidence of inappropriate prescribing",
+                    "value": "•  An outlier is a flag for review, not evidence of inappropriate prescribing",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"

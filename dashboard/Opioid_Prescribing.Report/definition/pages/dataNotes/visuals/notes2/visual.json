@@ -24,7 +24,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Opioid rate = opioid claims / all Part D claims",
+                    "value": "•  Opioid rate = opioid claims / all Part D claims",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -35,7 +35,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Fentanyl-type (synthetic) opioids = ICD-10 T40.4",
+                    "value": "•  Fentanyl-type (synthetic) opioids = ICD-10 T40.4",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -46,7 +46,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Prescription-type opioids = natural & semi-synthetic opioids (T40.2)",
+                    "value": "•  Prescription-type opioids = natural & semi-synthetic opioids (T40.2)",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -57,7 +57,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Death rates are per 100,000 residents",
+                    "value": "•  Death rates are per 100,000 residents",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
@@ -68,7 +68,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "\u2022  Peer outlier = at or above the 99th percentile and 3x the median of the same specialty, with 100+ total and 50+ opioid claims",
+                    "value": "•  Peer outlier = at or above the 99th percentile and 3x the median of the same specialty, with 100+ total and 50+ opioid claims",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#10302E"
