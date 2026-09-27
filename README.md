@@ -1,7 +1,12 @@
 # Medicare Opioid Prescribing vs. Overdose Deaths
 
-Analysis of **7.8 million real Medicare Part D prescriber records (2019–2024)** alongside 12 years of national prescribing
-rates and CDC overdose deaths, built with **PostgreSQL, Python and Power BI**.
+An analysis of **7.8 million real Medicare prescription records (2019–2024)** alongside 12 years of national prescribing
+rates and overdose deaths, built with **PostgreSQL, Python and Power BI**.
+
+> **In short:** doctors and other prescribers in Medicare wrote about **40% fewer** opioid prescriptions in 2024 than in 2013,
+> yet overdose deaths **doubled**. Most deaths now involve illegal fentanyl rather than prescription pills, and the states
+> that prescribe the most are not the states with the most deaths. Nurse practitioners and physician assistants now write
+> almost **a third** of these prescriptions. The project uses only public government data (Medicare, CDC, US Census).
 
 **Question:** US opioid prescribing has been falling for a decade. Did overdose deaths follow, and where should
 payers and public-health programs focus now?
@@ -16,7 +21,7 @@ payers and public-health programs focus now?
 |---|---|---|
 | 📉 | **Opioid prescribing in Medicare fell 39.5% from 2013 to 2024** (5.82% to 3.52% of all Part D prescriptions), and it dropped every single year. | SQL Q1 |
 | 📈 | **Over the same period overdose deaths doubled**, from 52,600 in 2015 to a peak of 109,400 in 2022. The share of opioid deaths involving **synthetic opioids (mainly illicit fentanyl) rose from 29% to 92%**, while deaths from prescription-type opioids stayed roughly flat. | SQL Q1, Q12 |
-| 🗺️ | **Across states, prescribing no longer predicts deaths.** A state's prescribing rate correlates *negatively* with fentanyl deaths in every year from 2015 to 2024 (r = −0.21 to −0.56), and only weakly positively with prescription-opioid deaths (r = 0.11 to 0.34). | SQL Q2 |
+| 🗺️ | **Across states, prescribing no longer predicts deaths.** States that prescribe more actually tend to have *fewer* fentanyl deaths: the prescribing rate correlates *negatively* with fentanyl deaths in every year from 2015 to 2024 (r = −0.21 to −0.56), and only weakly positively with prescription-opioid deaths (r = 0.11 to 0.34). | SQL Q2 |
 | 🩺 | **Nurse practitioners and PAs now write 30.5% of Medicare opioid prescriptions**, up from 22.5% in 2019, while primary care physicians fell from 42.8% to 34.6%. | SQL Q5, Q6 |
 | 🎯 | **Pain medicine is concentrated.** About 10,900 prescribers (0.8% of all) write 12.6% of opioid prescriptions, and opioids make up 52% of what they prescribe. | SQL Q5 |
 | 🔎 | **5,721 prescribers (0.8%) are extreme outliers against peers in their own specialty** (at or above the 99th percentile and at least 3x the specialty median). **One in five of them was flagged in every year from 2019 to 2024.** | SQL Q8, Q9 |
